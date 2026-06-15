@@ -1,9 +1,8 @@
 package com.ulp;
 
 /**
- * Calculadora que permite realizar las cuatro operaciones matemáticas básicas.
- * Por el momento solo se implementan la Suma y la Resta de números con coma
- * (decimales).
+ * Calculadora que permite realizar las cuatro operaciones matemáticas básicas:
+ * Suma, Resta, Multiplicación y División de números con coma (decimales).
  *
  * @author marco
  */
@@ -17,6 +16,11 @@ public class Calculadora {
     // Resta de dos números con coma (decimales)
     public double restar(double a, double b) {
         return a - b;
+    }
+
+    // Multiplicación de dos números con coma (decimales)
+    public double multiplicar(double a, double b) {
+        return a * b;
     }
 
     // División de dos números con coma (decimales)

@@ -41,19 +41,11 @@
             <version>5.10.2</version>
             <scope>test</scope>
         </dependency>
-        <!-- Unit Vintage. Es un motor que permite que los servidores modernos (YAML) 
-        ejecuten pruebas escritas en JUnit 4 antiguas y pruebas en JUnit 5 modernas al mismo tiempo.-->
+        <!-- Soporte para Test Suites de JUnit 5 (@Suite / @SelectClasses) -->
         <dependency>
-            <groupId>org.junit.vintage</groupId>
-            <artifactId>junit-vintage-engine</artifactId>
-            <version>5.10.2</version>
-            <scope>test</scope>
-        </dependency>
-        
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.13.2</version>
+            <groupId>org.junit.platform</groupId>
+            <artifactId>junit-platform-suite</artifactId>
+            <version>1.10.2</version>
             <scope>test</scope>
         </dependency>
     </dependencies>

@@ -1,7 +1,8 @@
 package com.ulp;
 
-import org.junit.BeforeClass;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 /**
  * Prueba de la división por cero de la Calculadora.
@@ -12,14 +13,14 @@ public class DivisionTest {
 
     private static Calculadora calc;
 
-    @BeforeClass
+    @BeforeAll
     public static void setUpClass() {
         calc = new Calculadora();
     }
 
     // Esperamos que dividir por cero lance ArithmeticException
-    @Test(expected = ArithmeticException.class)
+    @Test
     public void testDivisionCero() {
-        calc.dividir(10.0, 0);
+        assertThrows(ArithmeticException.class, () -> calc.dividir(10.0, 0));
     }
 }

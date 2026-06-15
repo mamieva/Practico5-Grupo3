@@ -1,11 +1,12 @@
 package com.ulp;
 
-import org.junit.BeforeClass;
-import org.junit.Before;
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Test;
-import static org.junit.Assert.*;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestInfo;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * Pruebas de la clase Calculadora (Suma y Resta de números con coma).
@@ -14,27 +15,30 @@ import static org.junit.Assert.*;
  */
 public class CalculadoraTest {
 
-    // static porque @BeforeClass es static y la inicializa una sola vez
+    // static porque @BeforeAll es static y la inicializa una sola vez
     private static Calculadora calc;
 
-    @BeforeClass
+    @BeforeAll
     public static void setUpClass() {
         calc = new Calculadora();
         System.out.println("Bienvenido a las pruebas de la Calculadora");
     }
 
-    @Before
-    public void setUp() {
-        // Muestra el nombre del método en ejecución (operación que se testea)
-        System.out.println(Thread.currentThread().getStackTrace()[1].getMethodName());
+    @BeforeEach
+    public void setUp(TestInfo testInfo) {
+        // Muestra dinámicamente el nombre del método de prueba en ejecución
+        String metodo = testInfo.getTestMethod()
+                .map(m -> m.getName())
+                .orElse(testInfo.getDisplayName());
+        System.out.println("Ejecutando prueba: " + metodo);
     }
 
-    @After
+    @AfterEach
     public void tearDown() {
         System.out.println("Prueba finalizada, campos en 0");
     }
 
-    @AfterClass
+    @AfterAll
     public static void tearDownClass() {
         System.out.println("La operación ha finalizado");
     }
